@@ -9,9 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 public class ValidacaoTutorComAdocaoEmAndamento implements ValidacaoSolicitacaoAdocao{
     @Autowired
-    AdocaoRepository adocaoRepository;
-
-    @Autowired
     TutorRepository tutorRepository;
 
     public void validar(SolicitacaoAdocaoDto dto) {
