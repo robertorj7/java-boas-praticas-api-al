@@ -1,8 +1,8 @@
 package br.com.alura.adopet.api.service;
 
 import br.com.alura.adopet.api.dto.AbrigoDto;
-import br.com.alura.adopet.api.dto.CadastrarAbrigoDTO;
-import br.com.alura.adopet.api.dto.PetDTO;
+import br.com.alura.adopet.api.dto.CadastrarAbrigoDto;
+import br.com.alura.adopet.api.dto.PetDto;
 import br.com.alura.adopet.api.exception.ValidacaoException;
 import br.com.alura.adopet.api.model.Abrigo;
 import br.com.alura.adopet.api.repository.AbrigoRepository;
@@ -30,7 +30,7 @@ public class AbrigoService {
                 .toList();
     }
 
-    public void cadastrar(CadastrarAbrigoDTO dto) {
+    public void cadastrar(CadastrarAbrigoDto dto) {
         Boolean jaCadastrado = abrigoRepository.existsByNomeOrTelefoneOrEmail(dto.nome(), dto.telefone(), dto.email());
 
         if (jaCadastrado) {
@@ -40,13 +40,13 @@ public class AbrigoService {
         abrigoRepository.save(new Abrigo(dto));
     }
 
-    public List<PetDTO> listarPetsDoAbrigo(String idOuNome) {
+    public List<PetDto> listarPetsDoAbrigo(String idOuNome) {
         Abrigo abrigo = carregarAbrigo(idOuNome);
 
         return petRepository
                 .findByAbrigo(abrigo)
                 .stream()
-                .map(PetDTO::new)
+                .map(PetDto::new)
                 .toList();
     }
 

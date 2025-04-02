@@ -1,9 +1,9 @@
 package br.com.alura.adopet.api.controller;
 
 import br.com.alura.adopet.api.dto.AbrigoDto;
-import br.com.alura.adopet.api.dto.CadastrarAbrigoDTO;
+import br.com.alura.adopet.api.dto.CadastrarAbrigoDto;
 import br.com.alura.adopet.api.dto.CadastroPetDto;
-import br.com.alura.adopet.api.dto.PetDTO;
+import br.com.alura.adopet.api.dto.PetDto;
 import br.com.alura.adopet.api.exception.ValidacaoException;
 import br.com.alura.adopet.api.model.Abrigo;
 import br.com.alura.adopet.api.service.AbrigoService;
@@ -35,7 +35,7 @@ public class AbrigoController {
 
     @PostMapping
     @Transactional
-    public ResponseEntity<String> cadastrar(@RequestBody @Valid CadastrarAbrigoDTO dto) {
+    public ResponseEntity<String> cadastrar(@RequestBody @Valid CadastrarAbrigoDto dto) {
         try {
             abrigoService.cadastrar(dto);
             return ResponseEntity.ok().build();
@@ -45,9 +45,9 @@ public class AbrigoController {
     }
 
     @GetMapping("/{idOuNome}/pets")
-    public ResponseEntity<List<PetDTO>> listarPets(@PathVariable String idOuNome) {
+    public ResponseEntity<List<PetDto>> listarPets(@PathVariable String idOuNome) {
         try {
-            List<PetDTO> pets = abrigoService.listarPetsDoAbrigo(idOuNome);
+            List<PetDto> pets = abrigoService.listarPetsDoAbrigo(idOuNome);
             return ResponseEntity.ok(pets);
         } catch (ValidacaoException exception) {
             return ResponseEntity.notFound().build();
