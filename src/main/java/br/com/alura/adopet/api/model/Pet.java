@@ -74,10 +74,6 @@ public class Pet {
         return tipo;
     }
 
-    public void setTipo(TipoPet tipo) {
-        this.tipo = tipo;
-    }
-
     public String getNome() {
         return nome;
     }
@@ -90,55 +86,15 @@ public class Pet {
         return raca;
     }
 
-    public void setRaca(String raca) {
-        this.raca = raca;
-    }
-
     public Integer getIdade() {
         return idade;
-    }
-
-    public void setIdade(Integer idade) {
-        this.idade = idade;
-    }
-
-    public String getCor() {
-        return cor;
-    }
-
-    public void setCor(String cor) {
-        this.cor = cor;
-    }
-
-    public Float getPeso() {
-        return peso;
-    }
-
-    public void setPeso(Float peso) {
-        this.peso = peso;
     }
 
     public Boolean getAdotado() {
         return adotado;
     }
 
-    public void setAdotado(Boolean adotado) {
-        this.adotado = adotado;
-    }
-
     public Abrigo getAbrigo() {
         return abrigo;
-    }
-
-    public void setAbrigo(Abrigo abrigo) {
-        this.abrigo = abrigo;
-    }
-
-    public Adocao getAdocao() {
-        return adocao;
-    }
-
-    public void setAdocao(Adocao adocao) {
-        this.adocao = adocao;
     }
 }

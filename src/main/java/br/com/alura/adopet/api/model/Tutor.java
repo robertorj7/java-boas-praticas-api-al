@@ -84,12 +84,4 @@ public class Tutor {
     public void setEmail(String email) {
         this.email = email;
     }
-
-    public List<Adocao> getAdocoes() {
-        return adocoes;
-    }
-
-    public void setAdocoes(List<Adocao> adocoes) {
-        this.adocoes = adocoes;
-    }
 }
