@@ -16,13 +16,13 @@ import org.springframework.web.bind.annotation.*;
 public class AdocaoController {
 
     @Autowired
-    private AdocaoService service;
+    private AdocaoService adocaoService;
 
     @PostMapping
     @Transactional
     public ResponseEntity<String> solicitar(@RequestBody @Valid SolicitacaoAdocaoDto dto) {
         try {
-            service.solicitar(dto);
+            adocaoService.solicitar(dto);
             return ResponseEntity.ok("Adoção solicitada com sucesso!");
         } catch (ValidacaoException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
@@ -33,7 +33,7 @@ public class AdocaoController {
     @Transactional
     public ResponseEntity<String> aprovar(@RequestBody @Valid AprovacaoAdocaoDto dto) {
         try {
-            service.aprovar(dto);
+            adocaoService.aprovar(dto);
             return ResponseEntity.ok().build();
         } catch (ValidacaoException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
@@ -44,7 +44,7 @@ public class AdocaoController {
     @Transactional
     public ResponseEntity<String> reprovar(@RequestBody @Valid ReprovacaoAdocaoDto dto) {
         try {
-            service.reprovar(dto);
+            adocaoService.reprovar(dto);
             return ResponseEntity.ok().build();
         } catch (ValidacaoException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
