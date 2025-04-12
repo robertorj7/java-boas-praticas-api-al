@@ -51,15 +51,15 @@ public class AbrigoService {
     }
 
     public Abrigo carregarAbrigo(String idOuNome) {
-        Optional<Abrigo> abrigoOptional;
+        Optional<Abrigo> abrigo;
 
         try {
             Long id = Long.parseLong(idOuNome);
-            abrigoOptional = abrigoRepository.findById(id);
+            abrigo = abrigoRepository.findById(id);
         } catch (NumberFormatException exception) {
-            abrigoOptional = abrigoRepository.findByNome(idOuNome);
+            abrigo = abrigoRepository.findByNome(idOuNome);
         }
 
-        return abrigoOptional.orElseThrow(() -> new ValidacaoException("Abrigo não encontrado!"));
+        return abrigo.orElseThrow(() -> new ValidacaoException("Abrigo não encontrado!"));
     }
 }
