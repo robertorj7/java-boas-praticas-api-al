@@ -97,4 +97,16 @@ public class Pet {
     public Abrigo getAbrigo() {
         return abrigo;
     }
+
+    public String getCor() {
+        return cor;
+    }
+
+    public Float getPeso() {
+        return peso;
+    }
+
+    public Adocao getAdocao() {
+        return adocao;
+    }
 }
