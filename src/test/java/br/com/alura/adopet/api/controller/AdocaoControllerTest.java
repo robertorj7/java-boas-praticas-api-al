@@ -36,4 +36,25 @@ class AdocaoControllerTest {
 
         Assertions.assertEquals(400, response.getStatus());
     }
+
+    @Test
+    void deveriaDevolverCodigo200ParaSolicitacaoDeAdocaoSemErros() throws Exception {
+        String json = """
+            {
+                "idPet": 1,
+                "idTutor": 1,
+                "motivo": "Motivo"
+            }
+        """;
+
+        var response = mvc.perform(
+                        post("/adocoes")
+                                .content(json)
+                                .contentType(MediaType.APPLICATION_JSON)
+                )
+                .andReturn()
+                .getResponse();
+
+        Assertions.assertEquals(200, response.getStatus());
+    }
 }
